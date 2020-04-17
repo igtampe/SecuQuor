@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29926.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "SecuQuor Encryptor", "SecuQuor Encryptor\SecuQuor Encryptor.vbproj", "{FC93DFC0-2E6B-4A57-8AE0-6A5A4472C66E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E1678337-7CBC-435A-89CD-491E11FD7435}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FC93DFC0-2E6B-4A57-8AE0-6A5A4472C66E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC93DFC0-2E6B-4A57-8AE0-6A5A4472C66E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC93DFC0-2E6B-4A57-8AE0-6A5A4472C66E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC93DFC0-2E6B-4A57-8AE0-6A5A4472C66E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9AE86D70-EF91-4CA6-BCDD-62050BF7E8C1}
+	EndGlobalSection
+EndGlobal
