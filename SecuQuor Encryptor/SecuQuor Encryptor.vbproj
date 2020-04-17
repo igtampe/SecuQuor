@@ -78,7 +78,7 @@
   <ItemGroup>
     <Compile Include="Handlers\ICodeWheel.vb" />
     <Compile Include="Handlers\IEncryptionHandler.vb" />
-    <Compile Include="Handlers\MCodeHandler.vb" />
+    <Compile Include="Handlers\MCode\MCodeHandler.vb" />
     <Compile Include="Handlers\SecuQuor\SecuQuorOptions.Designer.vb">
       <DependentUpon>SecuQuorOptions.vb</DependentUpon>
     </Compile>
@@ -146,8 +146,8 @@
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
     </None>
     <None Include="App.config" />
-    <None Include="Resources\MCode.Codewheel" />
-    <None Include="Resources\SecuQuor.Codewheel" />
+    <None Include="Handlers\MCode\MCode.Codewheel" />
+    <None Include="Handlers\SecuQuor\SecuQuor.Codewheel" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="SecuQuor Icon.ico" />

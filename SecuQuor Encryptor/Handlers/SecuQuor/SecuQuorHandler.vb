@@ -87,19 +87,16 @@
 
         '===============[Constructor]===============
 
-        Public Sub New(SecuQuorCodeWheelFile As String, Code As Integer())
+        Public Sub New(RawCodeWheelSegments As String(), Code As Integer())
             KeyCode = Code
             Shift = 0
 
             AllSegments = New ArrayList
-            FileOpen(1, SecuQuorCodeWheelFile, OpenMode.Input)
 
-            While Not EOF(1)
-                Dim CurrentLine As String() = LineInput(1).Split("~")
-                AllSegments.Add(New SecuQuorCodeWheelSegment(CurrentLine(0), CurrentLine(1), CurrentLine(2)))
-            End While
+            For Each RawSegment As String In RawCodeWheelSegments
+                AllSegments.Add(New SecuQuorCodeWheelSegment(RawSegment.Split("~")(0), RawSegment.Split("~")(1), RawSegment.Split("~")(2)))
+            Next
 
-            FileClose(1)
         End Sub
 
         '===============[Getters and Setters]===============
@@ -125,10 +122,10 @@
 
     '----------------------------[Constructor]----------------------------
 
-    Public Sub New(SecuQuorCodeWheelFile As String)
+    Public Sub New(RawCodeWheelSegments As String())
 
         'Create codewheel
-        CodeWheel = New SecuQuorCodeWheel(SecuQuorCodeWheelFile, {1, 1, 1})
+        CodeWheel = New SecuQuorCodeWheel(RawCodeWheelSegments, {1, 1, 1})
 
         'Create My Options Window
         myOptionsWindow = New SecuQuorOptions With {.Master = Me}

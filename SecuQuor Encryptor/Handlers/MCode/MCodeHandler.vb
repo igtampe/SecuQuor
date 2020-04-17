@@ -45,24 +45,21 @@
 
         '===============[Constructor]===============
 
-        Public Sub New(MCodeCodewheelFile As String)
+        Public Sub New(RawCodeWheelSegments As String())
             AllSegments = New ArrayList
-            FileOpen(1, MCodeCodewheelFile, OpenMode.Input)
 
-            While Not EOF(1)
-                Dim CurrentLine As String() = LineInput(1).Split("~")
-                AllSegments.Add(New MCodeCodeWheelSegment(CurrentLine(0), CurrentLine(1)))
-            End While
+            For Each CodeWheelSegment As String In RawCodeWheelSegments
+                AllSegments.Add(New MCodeCodeWheelSegment(CodeWheelSegment.Split("~")(0), CodeWheelSegment.Split("~")(1)))
+            Next
 
-            FileClose(1)
         End Sub
 
     End Structure
 
     '----------------------------[Constructor]----------------------------
 
-    Public Sub New(MCodeCodewheelFile As String)
-        CodeWheel = New MCodeCodeWheel(MCodeCodewheelFile)
+    Public Sub New(RawCodeWheelSegments As String())
+        CodeWheel = New MCodeCodeWheel(RawCodeWheelSegments)
     End Sub
 
     '----------------------------[EncryptionHandler Operations]----------------------------

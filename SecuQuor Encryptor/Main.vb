@@ -1,6 +1,4 @@
-﻿Imports System.IO
-
-Public Class Secuquor
+﻿Public Class Secuquor
 
     '----------------------------[Variables]----------------------------
 
@@ -16,14 +14,10 @@ Public Class Secuquor
 
     Private Sub LoadUp() Handles Me.Load
 
-        'Extract codewheels
-        Extract(My.Resources.MCode, "MCode.codewheel")
-        Extract(My.Resources.SecuQuor, "SecuQuor.codewheel")
-
         'Create and register the handlers
         MyHandlers = {
-            New MCodeHandler("MCode.codewheel"),
-            New SecuQuorHandler("SecuQuor.codewheel")
+            New MCodeHandler(ResourceToStringArray(My.Resources.MCode)),
+            New SecuQuorHandler(ResourceToStringArray(My.Resources.SecuQuor))
         }
 
         'Add Handlers to combobox
@@ -33,13 +27,13 @@ Public Class Secuquor
 
     End Sub
 
-    Private Sub Extract(Resource As Byte(), Filename As String)
-        If Not File.Exists(Filename) Then
-            Dim fs As FileStream = New FileStream(Application.StartupPath & "\" & Filename, FileMode.Create)
-            fs.Write(Resource, 0, Resource.Length)
-            fs.Close()
-        End If
-    End Sub
+    ''' <summary>returns a resource as an array of lines</summary>
+    ''' <param name="Resource">A resource (preferably a text file of some sort)</param>
+    ''' <returns>An array of the lines the resource contains</returns>
+    Private Function ResourceToStringArray(Resource As Byte()) As String()
+        Dim TheString As String = System.Text.Encoding.ASCII.GetString(Resource)
+        Return TheString.Replace(vbLf, "").Split(vbCr)
+    End Function
 
     '----------------------------[User Interaction]----------------------------
 
