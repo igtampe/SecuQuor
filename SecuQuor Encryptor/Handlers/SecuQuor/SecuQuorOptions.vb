@@ -65,7 +65,7 @@
 
             'Asked to sign it
             If TemporaryKeyCode(3).ToUpper = "S" Then
-                TemporaryKeyCode(3) = Hex(CInt(TemporaryKeyCode(0)) + CInt(TemporaryKeyCode(1)) + CInt(TemporaryKeyCode(2)))
+                TemporaryKeyCode(3) = GenerateKeyCodeSignature(TemporaryKeyCode)
                 KeycodeTXB.Text = String.Join("-", TemporaryKeyCode)
                 Return
             End If
