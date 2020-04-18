@@ -21,4 +21,5 @@ Looking that up in the CodeWheel, we get that `AB7` represents `H`.
 ### SecuQuor Keys
 SecuQuor's Keys are of either 3 or 4 segments. The first 3 segments contain 3 numbers, however the 4th is a hexadecimal number, which is a sort of *checksum* for the code (calculated by adding the three first segments). The 4th segment is optional, however, so you can use a signed code as an unsigned code by just removing the signature.
 
-I'm thinking about adding a new type of key, with 4 numbers in each segment, which *requires* the signature, potentially having a new type of checksum.
+#### Four Digit SecuQuor Keys
+SecuQuor Encryption V3 ads 4 digit keys, which require signatures, and have a new signature generating calculation (K1+2K2+3K3)
