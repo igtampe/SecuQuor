@@ -3,7 +3,7 @@
 
     '----------------------------[Variables]----------------------------
 
-    Private Const HANDLER_VERSION = 2.0
+    Private Const HANDLER_VERSION = 3.0
     Private Const HANDLER_NAME = "SecuQour Encryption"
     Private CodeWheel As SecuQuorCodeWheel
     Private ReadOnly myOptionsWindow As SecuQuorOptions
