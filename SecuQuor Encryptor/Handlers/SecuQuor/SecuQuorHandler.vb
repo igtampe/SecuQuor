@@ -3,7 +3,7 @@
 
     '----------------------------[Variables]----------------------------
 
-    Private Const HANDLER_VERSION = 3.0
+    Private Const HANDLER_VERSION = 3.1
     Private Const HANDLER_NAME = "SecuQour Encryption"
     Private CodeWheel As SecuQuorCodeWheel
     Private ReadOnly myOptionsWindow As SecuQuorOptions
@@ -12,7 +12,7 @@
 
     Private Structure SecuQuorCodeWheelSegment
         Public ReadOnly Character As String
-        Public ReadOnly Number As Integer
+        Public ReadOnly Number As Double
         Public ReadOnly Prefix As String
 
         Public Sub New(Character As String, Number As Integer, Prefix As String)
@@ -29,7 +29,7 @@
 
         Implements ICodeWheel
         Private ReadOnly AllSegments As ArrayList
-        Private KeyCode As Integer()
+        Private KeyCode As Double()
         Private Shift As Integer
 
         '===============[CodeWheel Operations]===============
@@ -59,7 +59,7 @@
 
             Try
                 Dim SegmentSection As String = Segment.Substring(0, 2)
-                Dim SegmentNumber As Integer = Segment.Substring(2)
+                Dim SegmentNumber As Double = Segment.Substring(2)
 
                 Select Case SegmentSection.Substring(0, 1)
                     Case "A"
@@ -87,7 +87,7 @@
 
         '===============[Constructor]===============
 
-        Public Sub New(RawCodeWheelSegments As String(), Code As Integer())
+        Public Sub New(RawCodeWheelSegments As String(), Code As Double())
             KeyCode = Code
             Shift = 0
 
@@ -101,12 +101,12 @@
 
         '===============[Getters and Setters]===============
 
-        Public Sub SetKeyCode(Code As Integer())
+        Public Sub SetKeyCode(Code As Double())
             If Code.Length < 3 Then Exit Sub
             KeyCode = Code
         End Sub
 
-        Public Function GetKeyCode() As Integer()
+        Public Function GetKeyCode() As Double()
             Return KeyCode
         End Function
 
@@ -186,7 +186,7 @@
         Return HANDLER_VERSION
     End Function
 
-    Public Sub SetKey(Key As Integer())
+    Public Sub SetKey(Key As Double())
         CodeWheel.SetKeyCode(Key)
     End Sub
 
